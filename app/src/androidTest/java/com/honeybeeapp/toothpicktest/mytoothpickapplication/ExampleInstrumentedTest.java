@@ -27,8 +27,6 @@ import static org.junit.Assert.assertThat;
 public class ExampleInstrumentedTest {
 
     private static final String LOG_TAG = ExampleInstrumentedTest.class.getName();
-//    @Inject
-//    IHTTPRequestFactory mFactory;
 
     @Inject
     Context mContext;
@@ -44,15 +42,11 @@ public class ExampleInstrumentedTest {
         Scope scope = Toothpick.openScopes(application, this);
 
         Module module = new Module();
-        //module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
         module.bind(Context.class).toInstance(application);
         scope.installTestModules(module);
         Toothpick.inject(this, scope);
 
-//        assertTrue(mFactory != null);
-//        mFactory.createRequest();
-
-        assertTrue(mContext != null);
+        assertTrue(mContext != null); // FAILS :(
 
         Log.d(LOG_TAG, "Injected");
     }
