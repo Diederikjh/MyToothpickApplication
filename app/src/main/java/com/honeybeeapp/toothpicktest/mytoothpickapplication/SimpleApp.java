@@ -30,7 +30,9 @@ public class SimpleApp extends Application {
     }
 
     public void initToothpick(Scope appScope) {
+        //Module module = new Module();
+        //module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
         appScope.installModules(new SmoothieApplicationModule(this));
-    }
+   }
 
 }
