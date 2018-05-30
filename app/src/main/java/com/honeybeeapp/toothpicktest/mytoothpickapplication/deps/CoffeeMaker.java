@@ -9,6 +9,14 @@ import javax.inject.Inject;
 
 public class CoffeeMaker {
 
+    public Heater getHeater() {
+        return heater;
+    }
+
+    public Pump getPump() {
+        return pump;
+    }
+
     @Inject
     Heater heater;
     @Inject

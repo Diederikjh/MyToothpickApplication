@@ -5,11 +5,14 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -33,20 +36,13 @@ public class ExampleInstrumentedTest {
 
         assertThat(appContext.getPackageName(), startsWith("com.honeybeeapp.toothpicktest.mytoothpickapplication"));
 
-        final SimpleApp application = (SimpleApp) appContext.getApplicationContext();
-//        Scope scope = Toothpick.openScopes(application, this);
+        TestCoffeeMakerFactory coffeeMakerFactory = DaggerTestCoffeeMakerFactory.builder()
+                .context(appContext).build();
+        CoffeeMaker maker = coffeeMakerFactory.createMaker();
+        Log.d(LOG_TAG, "Injection done");
 
-//        Module module = new Module();
-//        //module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
-//        module.bind(Context.class).toInstance(application);
-//        scope.installTestModules(module);
-//        Toothpick.inject(this, scope);
+        assertTrue(maker.getPump() != null);
+        assertTrue(maker.getHeater() != null);
 
-//        assertTrue(mFactory != null);
-//        mFactory.createRequest();
-
-//        assertTrue(mContext != null);
-
-        Log.d(LOG_TAG, "Injected");
     }
 }
