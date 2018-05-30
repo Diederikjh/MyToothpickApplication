@@ -50,11 +50,14 @@ public class InnerFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        doDaggerInjectionFragment();
+        doDaggerInjectionFragment(context);
     }
 
-    private void doDaggerInjectionFragment() {
-        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory.create();
+    private void doDaggerInjectionFragment(Context context) {
+        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory
+                .builder()
+                .context(context)
+                .build();
         CoffeeMaker maker = coffeeMakerFactory.createMaker();
         Log.d(LOG_TAG, "Injection done");
     }

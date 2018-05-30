@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doDaggerInjectionActivity() {
-        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory.create();
+        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory.builder().context(this).build();
         CoffeeMaker maker = coffeeMakerFactory.createMaker();
         Log.d(LOG_TAG, "Injection done");
     }

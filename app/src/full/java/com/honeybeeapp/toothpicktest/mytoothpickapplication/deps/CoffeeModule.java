@@ -1,5 +1,7 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.deps;
 
+import android.content.Context;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -14,8 +16,8 @@ public class CoffeeModule {
 
     @Provides
     @Singleton /* Means singleton per component. */
-    static Heater provideHeater() {
-        return new Heater();
+    static Heater provideHeater(Context context) {
+        return new ContextAwareHeaterFull(context);
     }
 
     @Provides
