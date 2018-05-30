@@ -1,13 +1,19 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerFactory;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerFactory;
 
 
 /**
@@ -39,6 +45,18 @@ public class InnerFragment extends Fragment {
 //            Toothpick.inject(this, scope);
 //            Log.d(LOG_TAG, "Injected");
 //        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        doDaggerInjectionFragment();
+    }
+
+    private void doDaggerInjectionFragment() {
+        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory.create();
+        CoffeeMaker maker = coffeeMakerFactory.createMaker();
+        Log.d(LOG_TAG, "Injection done");
     }
 
     @Override

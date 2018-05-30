@@ -8,9 +8,6 @@ import android.util.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import toothpick.Scope;
-import toothpick.Toothpick;
-
 import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.assertThat;
 
@@ -37,7 +34,7 @@ public class ExampleInstrumentedTest {
         assertThat(appContext.getPackageName(), startsWith("com.honeybeeapp.toothpicktest.mytoothpickapplication"));
 
         final SimpleApp application = (SimpleApp) appContext.getApplicationContext();
-        Scope scope = Toothpick.openScopes(application, this);
+//        Scope scope = Toothpick.openScopes(application, this);
 
 //        Module module = new Module();
 //        //module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();

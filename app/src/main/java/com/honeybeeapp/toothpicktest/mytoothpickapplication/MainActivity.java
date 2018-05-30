@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        doDaggerInjection();
+        doDaggerInjectionActivity();
 
         title = findViewById(R.id.title);
         subTitle = findViewById(R.id.subtitle);
@@ -35,18 +35,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent i = new Intent(MainActivity.this, SimpleService.class);
                 startService(i);
-
             }
         });
     }
 
-    private void doDaggerInjection() {
-        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory
-                .builder()
-                .build();
+    private void doDaggerInjectionActivity() {
+        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory.create();
         CoffeeMaker maker = coffeeMakerFactory.createMaker();
         Log.d(LOG_TAG, "Injection done");
     }
