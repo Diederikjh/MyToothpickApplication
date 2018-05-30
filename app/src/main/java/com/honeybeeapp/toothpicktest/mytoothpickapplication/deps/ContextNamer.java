@@ -11,8 +11,10 @@ import javax.inject.Inject;
 
 public class ContextNamer {
 
-    @Inject Application application;
-    @Inject Activity activity;
+    @Inject
+    Application application;
+    @Inject
+    Activity activity;
 
     public String getApplicationName() {
         return application.getClass().getSimpleName();

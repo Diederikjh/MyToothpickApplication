@@ -5,17 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.IHTTPRequestFactory;
-
-import javax.inject.Inject;
-
-import toothpick.Scope;
-import toothpick.Toothpick;
 
 
 /**
@@ -24,8 +16,8 @@ import toothpick.Toothpick;
 public class InnerFragment extends Fragment {
 
     private static final String LOG_TAG = InnerFragment.class.getName();
-    @Inject
-    IHTTPRequestFactory mRequestFactory1;
+//    @Inject
+//    IHTTPRequestFactory mRequestFactory1;
 
     public InnerFragment() {
         // Required empty public constructor
@@ -42,11 +34,11 @@ public class InnerFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final FragmentActivity activity = getActivity();
-        if (activity != null) {
-            Scope scope = Toothpick.openScopes(activity.getApplication(), activity, this);
-            Toothpick.inject(this, scope);
-            Log.d(LOG_TAG, "Injected");
-        }
+//        if (activity != null) {
+//            Scope scope = Toothpick.openScopes(activity.getApplication(), activity, this);
+//            Toothpick.inject(this, scope);
+//            Log.d(LOG_TAG, "Injected");
+//        }
     }
 
     @Override

@@ -8,13 +8,9 @@ import android.util.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.inject.Inject;
-
 import toothpick.Scope;
 import toothpick.Toothpick;
-import toothpick.config.Module;
 
-import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.assertThat;
 
@@ -30,8 +26,8 @@ public class ExampleInstrumentedTest {
 //    @Inject
 //    IHTTPRequestFactory mFactory;
 
-    @Inject
-    Context mContext;
+//    @Inject
+//    Context mContext;
 
     @Test
     public void useAppContext() throws Exception {
@@ -43,16 +39,16 @@ public class ExampleInstrumentedTest {
         final SimpleApp application = (SimpleApp) appContext.getApplicationContext();
         Scope scope = Toothpick.openScopes(application, this);
 
-        Module module = new Module();
-        //module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
-        module.bind(Context.class).toInstance(application);
-        scope.installTestModules(module);
-        Toothpick.inject(this, scope);
+//        Module module = new Module();
+//        //module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
+//        module.bind(Context.class).toInstance(application);
+//        scope.installTestModules(module);
+//        Toothpick.inject(this, scope);
 
 //        assertTrue(mFactory != null);
 //        mFactory.createRequest();
 
-        assertTrue(mContext != null);
+//        assertTrue(mContext != null);
 
         Log.d(LOG_TAG, "Injected");
     }
