@@ -12,10 +12,7 @@ import dagger.Provides;
  * Created by djh on 2018/05/31.
  */
 
-@Module(subcomponents = {
-        MainActivityComponent.class,
-        FragmentComponent.class
-})
+@Module
 public class AppModule {
 
     @Provides

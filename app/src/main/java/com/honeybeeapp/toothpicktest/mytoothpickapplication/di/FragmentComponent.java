@@ -10,6 +10,7 @@ import dagger.android.AndroidInjector;
  */
 
 @Subcomponent(modules = InnerFragmentModule.class)
+@Deprecated
 public interface FragmentComponent extends AndroidInjector<InnerFragment> {
 
     @Subcomponent.Builder
