@@ -12,8 +12,15 @@ import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerComponent;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerComponent;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
+
+    @Inject
+    MainView mView;
 
     private TextView title;
     private TextView subTitle;
@@ -21,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -44,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void doDaggerInjectionActivity() {
         CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent.builder().context(this).build();
         CoffeeMaker maker = coffeeMakerComponent.createMaker();
+
         Log.d(LOG_TAG, "Injection done");
     }
 
