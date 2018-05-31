@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerFactory;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerFactory;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerComponent;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerComponent;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doDaggerInjectionActivity() {
-        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory.builder().context(this).build();
-        CoffeeMaker maker = coffeeMakerFactory.createMaker();
+        CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent.builder().context(this).build();
+        CoffeeMaker maker = coffeeMakerComponent.createMaker();
         Log.d(LOG_TAG, "Injection done");
     }
 

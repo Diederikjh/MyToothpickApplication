@@ -36,7 +36,7 @@ public class ExampleInstrumentedTest {
 
         assertThat(appContext.getPackageName(), startsWith("com.honeybeeapp.toothpicktest.mytoothpickapplication"));
 
-        TestCoffeeMakerFactory coffeeMakerFactory = DaggerTestCoffeeMakerFactory.builder()
+        TestCoffeeMakerComponent coffeeMakerFactory = DaggerTestCoffeeMakerComponent.builder()
                 .context(appContext).build();
         CoffeeMaker maker = coffeeMakerFactory.createMaker();
         Log.d(LOG_TAG, "Injection done");

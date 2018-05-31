@@ -13,13 +13,13 @@ import dagger.Component;
 
 @Component(modules = CoffeeModule.class)
 @Singleton
-public interface CoffeeMakerFactory {
+public interface CoffeeMakerComponent {
     CoffeeMaker createMaker();
 
     @Component.Builder
     interface Builder {
         @BindsInstance
         Builder context(Context context);
-        CoffeeMakerFactory build();
+        CoffeeMakerComponent build();
     }
 }

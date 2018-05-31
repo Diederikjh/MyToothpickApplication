@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerFactory;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerFactory;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerComponent;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerComponent;
 
 
 /**
@@ -54,11 +54,11 @@ public class InnerFragment extends Fragment {
     }
 
     private void doDaggerInjectionFragment(Context context) {
-        CoffeeMakerFactory coffeeMakerFactory = DaggerCoffeeMakerFactory
+        CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent
                 .builder()
                 .context(context)
                 .build();
-        CoffeeMaker maker = coffeeMakerFactory.createMaker();
+        CoffeeMaker maker = coffeeMakerComponent.createMaker();
         Log.d(LOG_TAG, "Injection done");
     }
 

@@ -2,7 +2,7 @@ package com.honeybeeapp.toothpicktest.mytoothpickapplication;
 
 import android.content.Context;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerFactory;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerComponent;
 
 import javax.inject.Singleton;
 
@@ -15,12 +15,12 @@ import dagger.Component;
 
 @Component(modules = TestCoffeeModule.class)
 @Singleton
-public interface TestCoffeeMakerFactory extends CoffeeMakerFactory {
+public interface TestCoffeeMakerComponent extends CoffeeMakerComponent {
 
     @Component.Builder
     interface Builder {
         @BindsInstance
         Builder context(Context context);
-        TestCoffeeMakerFactory build();
+        TestCoffeeMakerComponent build();
     }
 }
