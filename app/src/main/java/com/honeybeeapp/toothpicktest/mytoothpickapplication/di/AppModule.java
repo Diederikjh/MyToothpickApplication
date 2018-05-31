@@ -13,7 +13,9 @@ import dagger.Provides;
  */
 
 @Module(subcomponents = {
-        MainActivityComponent.class})
+        MainActivityComponent.class,
+        FragmentComponent.class
+})
 public class AppModule {
 
     @Provides

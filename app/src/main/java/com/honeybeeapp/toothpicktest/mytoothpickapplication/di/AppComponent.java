@@ -7,6 +7,7 @@ import com.honeybeeapp.toothpicktest.mytoothpickapplication.SimpleApp;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
+import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * Created by djh on 2018/05/31.
@@ -14,8 +15,10 @@ import dagger.android.AndroidInjectionModule;
 
 @Component(modules = {
         AndroidInjectionModule.class,
+        AndroidSupportInjectionModule.class,
         AppModule.class,
-        ActivityBuilder.class})
+        ActivityBuilder.class,
+        FragmentBuilder.class})
 public interface AppComponent {
 
     @Component.Builder
