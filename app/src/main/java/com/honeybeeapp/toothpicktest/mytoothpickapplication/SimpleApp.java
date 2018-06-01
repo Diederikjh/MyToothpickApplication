@@ -25,8 +25,7 @@ public class SimpleApp extends Application implements HasActivityInjector {
         super.onCreate();
         DaggerAppComponent
                 .builder()
-                .application(this)
-                .build()
+                .create(this)
                 .inject(this);
    }
 

@@ -1,12 +1,10 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
-import android.app.Application;
-
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.SimpleApp;
 
-import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
+import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
@@ -17,15 +15,11 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
         AppModule.class,
-        ActivityBuilder.class})
-public interface AppComponent {
+        ActivityBuilder.class,
+        FragmentBuilder.class})
+public interface AppComponent extends AndroidInjector<SimpleApp> {
 
     @Component.Builder
-    interface Builder {
-        @BindsInstance
-        Builder application(Application application);
-        AppComponent build();
-    }
+    abstract class Builder extends AndroidInjector.Builder<SimpleApp> {}
 
-    void inject(SimpleApp app);
 }

@@ -13,8 +13,14 @@ import dagger.Provides;
 @Module
 class InnerFragmentModule {
 
+//    @Provides
+//    Context provideContext(InnerFragment fragment) {
+//        return fragment.getContext();
+//    }
+
     @Provides
-    InnerFragmentView provideDetailFragmentView(InnerFragment detailFragment){
-        return new InnerFragmentView(detailFragment);
+    InnerFragmentView provideDetailFragmentView(InnerFragment fragment) {
+        return new InnerFragmentView(fragment);
     }
+
 }
