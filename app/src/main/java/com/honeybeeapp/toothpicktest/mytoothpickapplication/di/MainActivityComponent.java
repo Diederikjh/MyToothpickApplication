@@ -8,7 +8,7 @@ import dagger.android.AndroidInjector;
 /**
  * Created by djh on 2018/05/31.
  */
-@Subcomponent(modules = MainViewPresenterModule.class)
+@Subcomponent(modules = DBConnectionModule.class)
 @Deprecated
 public interface MainActivityComponent extends AndroidInjector<MainActivity> {
 

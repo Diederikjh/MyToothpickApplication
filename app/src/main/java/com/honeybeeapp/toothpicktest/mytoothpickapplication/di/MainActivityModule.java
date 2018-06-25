@@ -14,7 +14,8 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class MainActivityModule {
 
     @ContributesAndroidInjector(modules = {
-            MainViewPresenterModule.class
+            DBConnectionModule.class,
+            DAOModule.class
     })
     abstract MainActivity contributeMainActivityInjector();
 

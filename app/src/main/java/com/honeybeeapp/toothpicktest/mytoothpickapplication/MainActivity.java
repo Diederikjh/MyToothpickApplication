@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
@@ -19,10 +22,10 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
     private static final String LOG_TAG = MainActivity.class.getName();
 
     @Inject
-    MainView mView;
+    CustomersDao mCustomersDao;
 
     @Inject
-    MainPresenter mPresenter;
+    ProductsDao mProductsDao;
 
     // TODO for each activity with child fragmens - add this member.
     @Inject
