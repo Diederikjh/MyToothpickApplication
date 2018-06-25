@@ -17,7 +17,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
 //        AppModule.class,
-        MainActivityModule.class
+        MainActivityModule.class,
+        FragmentBuilder.class
         // TODO here add all activity modules for each activity
 })
 public interface AppComponent {

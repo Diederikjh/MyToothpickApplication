@@ -17,6 +17,8 @@ import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMak
 
 import javax.inject.Inject;
 
+import dagger.android.support.AndroidSupportInjection;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,7 +59,7 @@ public class InnerFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
-//        AndroidSupportInjection.inject(this);
+        AndroidSupportInjection.inject(this);
         super.onAttach(context);
         doDaggerInjectionFragment(context);
     }
