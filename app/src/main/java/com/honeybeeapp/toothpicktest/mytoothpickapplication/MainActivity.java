@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
     private TextView title;
     private TextView subTitle;
-    private Button button;
+    private Button button1;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +46,27 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
         title = findViewById(R.id.title);
         subTitle = findViewById(R.id.subtitle);
-        button = findViewById(R.id.helloButton);
+        button1 = findViewById(R.id.helloButton);
+        button2 = findViewById(R.id.button2);
 
-        button.setText("Start details ");
+        button1.setText("Start details ");
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, DetailsActivity.class);
                 startActivity(i);
+            }
+        });
+
+
+        button2.setText("Start service");
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, SimpleService.class);
+                startService(i);
             }
         });
     }
