@@ -1,6 +1,7 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.MainActivity;
+import android.content.Context;
+
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DBConnection;
 
 import dagger.Module;
@@ -14,8 +15,8 @@ import dagger.Provides;
 public class DBConnectionModule {
 
     @Provides
-    DBConnection provideDBConnection(MainActivity mainActivity) {
-        return new DBConnection(mainActivity);
+    DBConnection provideDBConnection(Context context) {
+        return new DBConnection(context);
     }
 
 }

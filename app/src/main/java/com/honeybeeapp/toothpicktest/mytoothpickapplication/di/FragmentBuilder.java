@@ -13,6 +13,7 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class FragmentBuilder {
 
+    @FragmentScope
     @ContributesAndroidInjector(modules = InnerFragmentModule.class)
     abstract InnerFragment provideDetailFragmentFactory();
 

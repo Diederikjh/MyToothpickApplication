@@ -14,6 +14,7 @@ import dagger.Provides;
 class InnerFragmentModule {
 
     @Provides
+    @FragmentScope
     InnerFragmentView provideDetailFragmentView(InnerFragment detailFragment){
         return new InnerFragmentView(detailFragment);
     }
