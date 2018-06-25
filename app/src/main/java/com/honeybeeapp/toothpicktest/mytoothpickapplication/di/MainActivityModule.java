@@ -9,10 +9,14 @@ import dagger.android.ContributesAndroidInjector;
  * Created by djh on 2018/05/31.
  */
 
+/* One each for each concrete activity */
 @Module
 public abstract class MainActivityModule {
 
-    @ContributesAndroidInjector(modules = {MainViewPresenterModule.class, FragmentBuilder.class})
+    @ContributesAndroidInjector(modules = {
+            MainViewPresenterModule.class,
+            FragmentBuilder.class
+    })
     abstract MainActivity contributeMainActivityInjector();
 
 }

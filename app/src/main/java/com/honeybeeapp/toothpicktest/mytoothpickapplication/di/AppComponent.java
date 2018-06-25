@@ -16,8 +16,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
-        AppModule.class,
-        MainActivityModule.class})
+//        AppModule.class,
+        MainActivityModule.class
+        // TODO here add all activity modules for each activity
+})
 public interface AppComponent {
 
     @Component.Builder

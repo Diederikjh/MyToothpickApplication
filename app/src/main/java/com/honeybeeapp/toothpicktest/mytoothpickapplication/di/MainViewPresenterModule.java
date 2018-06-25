@@ -1,5 +1,7 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
+import android.content.Context;
+
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.ApiService;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.MainActivity;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.MainPresenter;
@@ -17,13 +19,18 @@ import dagger.Provides;
 public class MainViewPresenterModule {
 
     @Provides
-    MainView provideMainView(MainActivity mainActivity){
+    MainView provideMainView(MainActivity mainActivity) {
         return new MainView(mainActivity);
     }
 
     @Provides
-    MainPresenter provideMainPresenter(MainView mainView, ApiService apiService){
+    MainPresenter provideMainPresenter(MainView mainView, ApiService apiService) {
         return new MainPresenterImpl(mainView, apiService);
+    }
+
+    @Provides
+    Context provideContext(MainActivity mainActivity) {
+        return mainActivity;
     }
 
 }

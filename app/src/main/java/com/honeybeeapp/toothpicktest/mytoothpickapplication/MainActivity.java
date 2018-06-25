@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity /*implements HasSupportFragm
     @Inject
     MainView mView;
 
+    @Inject
+    MainPresenter mPresenter;
+
 //    @Inject
 //    DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
 
