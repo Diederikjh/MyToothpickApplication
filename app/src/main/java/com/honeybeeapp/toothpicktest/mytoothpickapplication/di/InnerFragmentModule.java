@@ -1,7 +1,7 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.InnerFragment;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.InnerFragmentView;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,7 +15,8 @@ class InnerFragmentModule {
 
     @Provides
     @FragmentScope
-    InnerFragmentView provideDetailFragmentView(InnerFragment detailFragment){
-        return new InnerFragmentView(detailFragment);
+    InnerFragmentView provideDetailFragmentView(CustomersDao customersDao){
+        return new InnerFragmentView(customersDao);
     }
+
 }

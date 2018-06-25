@@ -6,14 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerComponent;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerComponent;
 
 import javax.inject.Inject;
 
@@ -61,17 +56,17 @@ public class InnerFragment extends Fragment {
     public void onAttach(Context context) {
         AndroidSupportInjection.inject(this);
         super.onAttach(context);
-        doDaggerInjectionFragment(context);
+//        doDaggerInjectionFragment(context);
     }
 
-    private void doDaggerInjectionFragment(Context context) {
-        CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent
-                .builder()
-                .context(context)
-                .build();
-        CoffeeMaker maker = coffeeMakerComponent.createMaker();
-        Log.d(LOG_TAG, "Injection done");
-    }
+//    private void doDaggerInjectionFragment(Context context) {
+//        CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent
+//                .builder()
+//                .context(context)
+//                .build();
+//        CoffeeMaker maker = coffeeMakerComponent.createMaker();
+//        Log.d(LOG_TAG, "Injection done");
+//    }
 
     @Override
     public void onDestroy() {
