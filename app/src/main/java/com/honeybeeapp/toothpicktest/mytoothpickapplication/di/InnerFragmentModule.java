@@ -1,10 +1,6 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.InnerFragment;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.InnerFragmentView;
-
 import dagger.Module;
-import dagger.Provides;
 
 /**
  * Created by djh on 2018/05/31.
@@ -13,8 +9,8 @@ import dagger.Provides;
 @Module
 class InnerFragmentModule {
 
-    @Provides
-    InnerFragmentView provideDetailFragmentView(InnerFragment detailFragment){
-        return new InnerFragmentView(detailFragment);
-    }
+//    @Provides
+//    InnerFragmentView provideDetailFragmentView(android.support.v4.app.Fragment detailFragment){
+//        return new InnerFragmentView(detailFragment);
+//    }
 }

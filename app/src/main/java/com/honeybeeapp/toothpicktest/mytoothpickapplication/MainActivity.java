@@ -2,32 +2,23 @@ package com.honeybeeapp.toothpicktest.mytoothpickapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMakerComponent;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DaggerCoffeeMakerComponent;
-
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.support.HasSupportFragmentInjector;
 
-public class MainActivity extends AppCompatActivity implements HasSupportFragmentInjector {
+public class MainActivity extends AppCompatActivity /*implements HasSupportFragmentInjector*/ {
     private static final String LOG_TAG = MainActivity.class.getName();
 
     @Inject
     MainView mView;
 
-    @Inject
-    DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
+//    @Inject
+//    DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
 
     private TextView title;
     private TextView subTitle;
@@ -39,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        doDaggerInjectionActivity();
+//        doDaggerInjectionActivity();
 
         title = findViewById(R.id.title);
         subTitle = findViewById(R.id.subtitle);
@@ -56,20 +47,20 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
         });
     }
 
-    private void doDaggerInjectionActivity() {
-        CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent.builder().context(this).build();
-        CoffeeMaker maker = coffeeMakerComponent.createMaker();
-
-        Log.d(LOG_TAG, "Injection done");
-    }
+//    private void doDaggerInjectionActivity() {
+//        CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent.builder().context(this).build();
+//        CoffeeMaker maker = coffeeMakerComponent.createMaker();
+//
+//        Log.d(LOG_TAG, "Injection done");
+//    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
 
-    @Override
-    public AndroidInjector<Fragment> supportFragmentInjector() {
-        return fragmentDispatchingAndroidInjector;
-    }
+//    @Override
+//    public AndroidInjector<Fragment> supportFragmentInjector() {
+//        return fragmentDispatchingAndroidInjector;
+//    }
 }
