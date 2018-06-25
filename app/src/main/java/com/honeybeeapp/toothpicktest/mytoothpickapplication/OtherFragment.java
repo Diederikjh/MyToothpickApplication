@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
+
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
@@ -21,6 +23,9 @@ public class OtherFragment extends Fragment {
 
     @Inject
     InnerFragmentView mFragmentView2;
+
+    @Inject
+    CustomersDao mCustomersDao;
 
     public OtherFragment() {
         // Required empty public constructor

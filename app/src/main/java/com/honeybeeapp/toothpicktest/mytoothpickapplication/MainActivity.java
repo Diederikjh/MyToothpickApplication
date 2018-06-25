@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
         subTitle = findViewById(R.id.subtitle);
         button = findViewById(R.id.helloButton);
 
-        button.setText("Start service");
+        button.setText("Start details ");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, SimpleService.class);
-                startService(i);
+                Intent i = new Intent(MainActivity.this, DetailsActivity.class);
+                startActivity(i);
             }
         });
     }

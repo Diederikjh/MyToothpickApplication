@@ -15,6 +15,7 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class FragmentsModule {
 
     @FragmentScope
+    @ActivityScope
     @ContributesAndroidInjector(modules = {
             DBConnectionModule.class,
             DAOModule.class,
@@ -22,6 +23,7 @@ public abstract class FragmentsModule {
     abstract InnerFragment provideDetailFragmentFactory();
 
     @FragmentScope
+    @ActivityScope
     @ContributesAndroidInjector(modules = {
             DBConnectionModule.class,
             DAOModule.class,
