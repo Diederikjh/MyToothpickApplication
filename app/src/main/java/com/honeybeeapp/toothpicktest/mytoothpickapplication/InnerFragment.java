@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.IHTTPRequestFactory;
 
 import javax.inject.Inject;
@@ -26,6 +27,12 @@ public class InnerFragment extends Fragment {
     private static final String LOG_TAG = InnerFragment.class.getName();
     @Inject
     IHTTPRequestFactory mRequestFactory1;
+
+    @Inject
+    CustomersDao mCustomersDao1;
+
+    @Inject
+    CustomersDao mCustomersDao2;
 
     public InnerFragment() {
         // Required empty public constructor

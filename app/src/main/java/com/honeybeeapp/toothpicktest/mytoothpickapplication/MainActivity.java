@@ -47,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
     IHTTPRequestFactory mRequestFactory2;
 
     @Inject
-    CustomersDao mCustomersDao;
+    CustomersDao mCustomersDao1;
+
+    @Inject
+    CustomersDao mCustomersDao2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Module module = new Module();
         module.bind(Context.class).toInstance(this);
         module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
-        scope.installModules(new SmoothieActivityModule(this), module, new ToothpickModule());
+        scope.installModules(new SmoothieActivityModule(this), module, new ToothpickModule(this));
         super.onCreate(savedInstanceState);
         Toothpick.inject(this, scope);
         setContentView(R.layout.activity_main);

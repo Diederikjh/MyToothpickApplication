@@ -1,9 +1,9 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
+import android.content.Context;
+
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.HTTPRequestFactoryProvider;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.IHTTPRequestFactory;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
 
 import toothpick.config.Module;
 
@@ -13,17 +13,21 @@ import toothpick.config.Module;
 
 public class ToothpickModule extends Module {
 
-    public ToothpickModule() {
-        bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
+    private Context mContext;
+
+    public ToothpickModule(Context context) {
+        mContext = context;
+        bind(IHTTPRequestFactory.class)
+                .toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
 
         bindDaos();
     }
 
     private void bindDaos() {
-        bind(DBConnection.class).to(DBConnection.class);
+        bind(DBConnection.class).toProviderInstance(new DBConnectionProvider(mContext));
 
-        bind(CustomersDao.class).toProviderInstance(new CustomersDaoProvider());
-        bind(ProductsDao.class).to(ProductsDao.class);
+        //bind(CustomersDao.class).toProviderInstance(new CustomersDaoProvider());
+        //bind(ProductsDao.class).to(ProductsDao.class);
     }
 
 }
