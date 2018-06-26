@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ContextNamer;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.HTTPRequestFactoryProvider;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.IHTTPRequestFactory;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.InjectionContextConstructorParamTest;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.InjectionNoConstructorTest;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.di.ToothpickModule;
 
 import javax.inject.Inject;
 
@@ -44,13 +46,16 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     IHTTPRequestFactory mRequestFactory2;
 
+    @Inject
+    CustomersDao mCustomersDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         scope = Toothpick.openScopes(getApplication(), this);
         Module module = new Module();
         module.bind(Context.class).toInstance(this);
         module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
-        scope.installModules(new SmoothieActivityModule(this), module);
+        scope.installModules(new SmoothieActivityModule(this), module, new ToothpickModule());
         super.onCreate(savedInstanceState);
         Toothpick.inject(this, scope);
         setContentView(R.layout.activity_main);
