@@ -1,20 +1,24 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.deps;
 
 import javax.inject.Inject;
-import javax.inject.Provider;
+
+import dagger.Module;
+import dagger.Provides;
 
 /**
  * Created by djh on 2018/05/25.
  */
 
-public class HTTPRequestFactoryProvider implements Provider<IHTTPRequestFactory> {
+@Module
+public class HTTPRequestFactoryModule  {
 
     @Inject
-    public HTTPRequestFactoryProvider() {
+    public HTTPRequestFactoryModule() {
     }
 
-    @Override
+    @Provides
     public IHTTPRequestFactory get() {
         return new DemoHTTPRequestFactory();
     }
+
 }

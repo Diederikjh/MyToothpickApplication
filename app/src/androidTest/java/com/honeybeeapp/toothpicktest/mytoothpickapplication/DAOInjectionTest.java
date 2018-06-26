@@ -18,7 +18,6 @@ public class DAOInjectionTest {
 
     @Test
     public void testComponentTest() {
-
         Context appContext = InstrumentationRegistry.getTargetContext();
         TestComponent component = DaggerTestComponent.builder().context(appContext).build();
         DBConnection connection = component.dbConnection();

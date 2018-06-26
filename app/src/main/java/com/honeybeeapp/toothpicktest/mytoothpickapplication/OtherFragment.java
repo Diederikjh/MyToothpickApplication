@@ -19,12 +19,6 @@ import dagger.android.support.AndroidSupportInjection;
 public class OtherFragment extends Fragment {
 
     @Inject
-    InnerFragmentView mFragmentView1;
-
-    @Inject
-    InnerFragmentView mFragmentView2;
-
-    @Inject
     CustomersDao mCustomersDao;
 
     public OtherFragment() {

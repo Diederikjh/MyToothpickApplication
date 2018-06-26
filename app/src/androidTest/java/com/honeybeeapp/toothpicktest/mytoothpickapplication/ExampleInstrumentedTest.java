@@ -3,14 +3,10 @@ package com.honeybeeapp.toothpicktest.mytoothpickapplication;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
-import android.util.Log;
-
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CoffeeMaker;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.assertThat;
 
@@ -23,11 +19,6 @@ import static org.junit.Assert.assertThat;
 public class ExampleInstrumentedTest {
 
     private static final String LOG_TAG = ExampleInstrumentedTest.class.getName();
-//    @Inject
-//    IHTTPRequestFactory mFactory;
-
-//    @Inject
-//    Context mContext;
 
     @Test
     public void useAppContext() throws Exception {
@@ -35,14 +26,6 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertThat(appContext.getPackageName(), startsWith("com.honeybeeapp.toothpicktest.mytoothpickapplication"));
-
-        TestCoffeeMakerComponent coffeeMakerFactory = DaggerTestCoffeeMakerComponent.builder()
-                .context(appContext).build();
-        CoffeeMaker maker = coffeeMakerFactory.createMaker();
-        Log.d(LOG_TAG, "Injection done");
-
-        assertTrue(maker.getPump() != null);
-        assertTrue(maker.getHeater() != null);
 
     }
 }
