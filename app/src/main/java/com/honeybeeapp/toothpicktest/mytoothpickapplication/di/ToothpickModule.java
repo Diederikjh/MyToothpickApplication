@@ -2,8 +2,10 @@ package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
 import android.content.Context;
 
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.HTTPRequestFactoryProvider;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.IHTTPRequestFactory;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
 
 import toothpick.config.Module;
 
@@ -24,10 +26,12 @@ public class ToothpickModule extends Module {
     }
 
     private void bindDaos() {
-        bind(DBConnection.class).toProviderInstance(new DBConnectionProvider(mContext));
+        final DBConnectionProvider providerInstance = new DBConnectionProvider(mContext);
+        bind(DBConnection.class).toProviderInstance(providerInstance);
 
-        //bind(CustomersDao.class).toProviderInstance(new CustomersDaoProvider());
-        //bind(ProductsDao.class).to(ProductsDao.class);
+        final DBConnection dbConnection = providerInstance.get();
+        bind(CustomersDao.class).toProviderInstance(new CustomersDaoProvider(dbConnection)).providesSingletonInScope();
+        bind(ProductsDao.class).toProviderInstance(new ProductsDaoProvider(dbConnection)).providesSingletonInScope();;
     }
 
 }

@@ -2,7 +2,6 @@ package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 
-import javax.inject.Inject;
 import javax.inject.Provider;
 
 /**
@@ -11,8 +10,11 @@ import javax.inject.Provider;
 
 class CustomersDaoProvider implements Provider<CustomersDao> {
 
-    @Inject // Doesn't actually work.
     DBConnection mDBConnection;
+
+    public CustomersDaoProvider(DBConnection dbConnection) {
+        this.mDBConnection = dbConnection;
+    }
 
     @Override
     public CustomersDao get() {
