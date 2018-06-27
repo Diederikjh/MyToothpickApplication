@@ -3,6 +3,7 @@ package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DBConnection;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDaoHelper;
 
 import dagger.Module;
 import dagger.Provides;
@@ -20,6 +21,12 @@ public class DAOModule {
     @ActivityScope
     ProductsDao provideProductsDAO(DBConnection dbConnection) {
         return new ProductsDao(dbConnection);
+    }
+
+    @Provides
+    @ActivityScope
+    ProductsDaoHelper provideProductsDAOHelper(ProductsDao productDao) {
+        return new ProductsDaoHelper(productDao);
     }
 
 }

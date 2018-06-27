@@ -11,8 +11,7 @@ import dagger.Component;
 
 @ActivityScope
 @Component(modules = {
-        DBConnectionModule.class,
-        DAOModule.class
+        DefaultActivityModule.class
 })
 public interface AdhocInjectionComponent
 {

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDaoHelper;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.RandomClassThatNeedsInjection;
 
 import javax.inject.Inject;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
     @Inject
     ProductsDao mProductsDao;
+
+    @Inject
+    ProductsDaoHelper mProductDaoHelper;
 
     @Inject
     LayoutInflater mLayoutInflater;

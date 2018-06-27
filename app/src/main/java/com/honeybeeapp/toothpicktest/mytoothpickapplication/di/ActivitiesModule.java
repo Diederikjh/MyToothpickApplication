@@ -16,15 +16,13 @@ public abstract class ActivitiesModule {
 
     @ActivityScope
     @ContributesAndroidInjector(modules = {
-            DBConnectionModule.class,
-            DAOModule.class
+            DefaultActivityModule.class
     })
     abstract MainActivity contributeMainActivityInjector();
 
     @ActivityScope
     @ContributesAndroidInjector(modules = {
-            DBConnectionModule.class,
-            DAOModule.class
+            DefaultActivityModule.class
     })
     abstract DetailsActivity contributeDetailsActivityInjector();
 
