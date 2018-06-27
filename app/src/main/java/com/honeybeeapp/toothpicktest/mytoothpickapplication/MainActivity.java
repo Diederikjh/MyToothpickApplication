@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ActivitySingleton;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ContextNamer;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.HTTPRequestFactoryProvider;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         module.bind(Context.class).toInstance(this);
         module.bind(IHTTPRequestFactory.class).toProvider(HTTPRequestFactoryProvider.class).providesSingletonInScope();
         scope.installModules(new SmoothieActivityModule(this), module, new ToothpickModule(this));
+        scope.bindScopeAnnotation(ActivitySingleton.class);
         super.onCreate(savedInstanceState);
         Toothpick.inject(this, scope);
         setContentView(R.layout.activity_main);
