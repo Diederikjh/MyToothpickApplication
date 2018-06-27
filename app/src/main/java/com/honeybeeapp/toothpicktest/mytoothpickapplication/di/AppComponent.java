@@ -1,6 +1,7 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.di;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.SimpleApp;
 
@@ -35,6 +36,8 @@ public interface AppComponent {
         Builder application(Application application);
         AppComponent build();
     }
+
+    Context context();
 
     void inject(SimpleApp app);
 

@@ -18,13 +18,11 @@ public class DAOModule {
     }
 
     @Provides
-    @ActivityScope
     ProductsDao provideProductsDAO(DBConnection dbConnection) {
         return new ProductsDao(dbConnection);
     }
 
     @Provides
-    @ActivityScope
     ProductsDaoHelper provideProductsDAOHelper(ProductsDao productDao) {
         return new ProductsDaoHelper(productDao);
     }
