@@ -18,6 +18,6 @@ class CustomersDaoProvider implements Provider<CustomersDao> {
 
     @Override
     public CustomersDao get() {
-        return new CustomersDao(mDBConnection);
+        return new CustomersDao();
     }
 }

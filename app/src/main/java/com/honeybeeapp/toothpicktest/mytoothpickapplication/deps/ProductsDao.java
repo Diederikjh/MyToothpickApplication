@@ -1,6 +1,6 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.deps;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.di.DBConnection;
+import javax.inject.Inject;
 
 /**
  * Created by djh on 2018/06/26.
@@ -8,8 +8,7 @@ import com.honeybeeapp.toothpicktest.mytoothpickapplication.di.DBConnection;
 
 public class ProductsDao extends BaseDao {
 
-    public ProductsDao(DBConnection dbConnection) {
-        super(dbConnection);
+    @Inject
+    public ProductsDao() {
     }
-
 }

@@ -17,6 +17,6 @@ class ProductsDaoProvider implements Provider<ProductsDao> {
 
     @Override
     public ProductsDao get() {
-        return new ProductsDao(mdbConnection);
+        return new ProductsDao();
     }
 }
