@@ -38,4 +38,6 @@ public interface AppComponent {
 
     void inject(SimpleApp app);
 
+    AdhocInjectionComponent adhocInjectionComponent(DefaultActivityModule module);
+
 }

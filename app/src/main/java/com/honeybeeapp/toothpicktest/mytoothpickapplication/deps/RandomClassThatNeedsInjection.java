@@ -12,7 +12,7 @@ public class RandomClassThatNeedsInjection {
     public RandomClassThatNeedsInjection(Context context) {
 
         AdhocInjectionComponent component =
-                DaggerAdhocInjectionComponent.builder().context(context).build();
+                DaggerAdhocInjectionComponent.build();
         // Not as nice as @Injection, but will do.
         mCustomersDao = component.customersDao();
     }
