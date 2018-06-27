@@ -9,7 +9,6 @@ import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
 import dagger.BindsInstance;
 import dagger.Component;
 
-@ActivityScope
 @Component(modules = {
         DefaultActivityModule.class
 })

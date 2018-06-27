@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.Reusable;
 
 /**
  * Created by djh on 2018/05/25.
@@ -17,7 +18,8 @@ public class HTTPRequestFactoryModule  {
     }
 
     @Provides
-    public IHTTPRequestFactory get() {
+    @Reusable
+    public IHTTPRequestFactory provideHTTPRequestFactory() {
         return new DemoHTTPRequestFactory();
     }
 

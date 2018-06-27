@@ -7,24 +7,25 @@ import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDaoHelp
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.Reusable;
 
 @Module
 public class DAOModule {
 
     @Provides
-    @ActivityScope
+    @Reusable
     CustomersDao provideCustomersDAO(DBConnection dbConnection) {
         return new CustomersDao(dbConnection);
     }
 
     @Provides
-    @ActivityScope
+    @Reusable
     ProductsDao provideProductsDAO(DBConnection dbConnection) {
         return new ProductsDao(dbConnection);
     }
 
     @Provides
-    @ActivityScope
+    @Reusable
     ProductsDaoHelper provideProductsDAOHelper(ProductsDao productDao) {
         return new ProductsDaoHelper(productDao);
     }
