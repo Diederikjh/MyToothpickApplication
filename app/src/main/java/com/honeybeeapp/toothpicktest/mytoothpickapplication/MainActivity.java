@@ -15,6 +15,9 @@ import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.HTTPRequestFact
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.IHTTPRequestFactory;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.InjectionContextConstructorParamTest;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.InjectionNoConstructorTest;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductDAOHelper;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.RandoClass;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.di.ToothpickModule;
 
 import javax.inject.Inject;
@@ -53,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     CustomersDao mCustomersDao2;
 
+    @Inject
+    ProductsDao mProductDao;
+
+    @Inject
+    ProductDAOHelper mProductDaoHelper;
+
+    private RandoClass mRando;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         scope = Toothpick.openScopes(getApplication(), this);
@@ -82,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        mRando = new RandoClass(getApplication(), this);
     }
 
     @Override
