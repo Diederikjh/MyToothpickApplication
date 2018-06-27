@@ -24,7 +24,10 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
     private static final String LOG_TAG = MainActivity.class.getName();
 
     @Inject
-    CustomersDao mCustomersDao;
+    CustomersDao mCustomersDao1;
+
+    @Inject
+    CustomersDao mCustomersDao2;
 
     @Inject
     ProductsDao mProductsDao;
@@ -48,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        doDaggerInjectionActivity();
 
         title = findViewById(R.id.title);
         subTitle = findViewById(R.id.subtitle);
@@ -79,13 +80,6 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
         mRando = new RandomClassThatNeedsInjection(this);
     }
-
-//    private void doDaggerInjectionActivity() {
-//        CoffeeMakerComponent coffeeMakerComponent = DaggerCoffeeMakerComponent.builder().context(this).build();
-//        CoffeeMaker maker = coffeeMakerComponent.createMaker();
-//
-//        Log.d(LOG_TAG, "Injection done");
-//    }
 
     @Override
     protected void onDestroy() {

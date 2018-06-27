@@ -11,11 +11,13 @@ import dagger.Provides;
 public class DAOModule {
 
     @Provides
+    @ActivityScope
     CustomersDao provideCustomersDAO(DBConnection dbConnection) {
         return new CustomersDao(dbConnection);
     }
 
     @Provides
+    @ActivityScope
     ProductsDao provideProductsDAO(DBConnection dbConnection) {
         return new ProductsDao(dbConnection);
     }

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.CustomersDao;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.IHTTPRequestFactory;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.ProductsDao;
 
@@ -24,6 +25,9 @@ public class InnerFragment extends Fragment {
 
     @Inject
     ProductsDao mProductsDao;
+
+    @Inject
+    CustomersDao mCustomerDao;
 
     @Inject
     IHTTPRequestFactory mFactory;
