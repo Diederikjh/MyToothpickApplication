@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
             }
         });
 
-
         button2.setText("Start service");
 
         button2.setOnClickListener(new View.OnClickListener() {
