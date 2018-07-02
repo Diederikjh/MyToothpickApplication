@@ -17,10 +17,10 @@ public class RandoClass {
     ProductsDao mProductsDao;
 
     public RandoClass(Application app, Context context) {
-
+        // TODO could be better - don't always know entire context hierarchy
         scope = Toothpick.openScopes(app, context, this);
         Toothpick.inject(this, scope);
         Log.d("Rando", "Injected");
-
     }
+
 }
