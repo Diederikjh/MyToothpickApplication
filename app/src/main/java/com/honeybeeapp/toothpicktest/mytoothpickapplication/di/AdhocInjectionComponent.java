@@ -10,7 +10,8 @@ import dagger.BindsInstance;
 import dagger.Component;
 
 @Component(modules = {
-        DefaultActivityModule.class
+        DAOModule.class,
+        DBConnectionModule.class
 })
 public interface AdhocInjectionComponent
 {

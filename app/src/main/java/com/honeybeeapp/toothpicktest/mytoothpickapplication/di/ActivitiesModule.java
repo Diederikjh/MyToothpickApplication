@@ -14,14 +14,10 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class ActivitiesModule {
 
-    @ContributesAndroidInjector(modules = {
-            DefaultActivityModule.class
-    })
+    @ContributesAndroidInjector
     abstract MainActivity contributeMainActivityInjector();
 
-    @ContributesAndroidInjector(modules = {
-            DefaultActivityModule.class
-    })
+    @ContributesAndroidInjector
     abstract DetailsActivity contributeDetailsActivityInjector();
 
 }
