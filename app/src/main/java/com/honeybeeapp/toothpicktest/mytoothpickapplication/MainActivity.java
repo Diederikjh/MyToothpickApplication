@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
     private Button button1;
     private Button button2;
 
-    private RandomClassThatNeedsInjection mRando;
+    @Inject
+    RandomClassThatNeedsInjection mRando;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
             }
         });
 
-        mRando = new RandomClassThatNeedsInjection(this);
+        mRando.doRandomStuff();
     }
 
     @Override

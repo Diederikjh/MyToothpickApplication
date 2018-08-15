@@ -2,7 +2,6 @@ package com.honeybeeapp.toothpicktest.mytoothpickapplication;
 
 import android.content.Context;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.deps.DBConnection;
 import com.honeybeeapp.toothpicktest.mytoothpickapplication.di.DAOModule;
 
 import dagger.BindsInstance;
@@ -21,5 +20,7 @@ public interface TestComponent {
         TestComponent build();
     }
 
-    DBConnection dbConnection();
+    void injectMembers(RandomClassThatNeedsInjectionTest randomClassThatNeedsInjectionTest);
+    void injectMembers(DAOInjectionTest daoInjectionTest);
+
 }

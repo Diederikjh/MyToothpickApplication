@@ -1,19 +1,24 @@
 package com.honeybeeapp.toothpicktest.mytoothpickapplication.deps;
 
-import android.content.Context;
+import android.util.Log;
 
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.di.AdhocInjectionComponent;
-import com.honeybeeapp.toothpicktest.mytoothpickapplication.di.DaggerAdhocInjectionComponent;
+import javax.inject.Inject;
 
 public class RandomClassThatNeedsInjection {
 
+    private static final String LOG_TAG = RandomClassThatNeedsInjection.class.getName();
+
     private final CustomersDao mCustomersDao;
 
-    public RandomClassThatNeedsInjection(Context context) {
-
-        AdhocInjectionComponent component =
-                DaggerAdhocInjectionComponent.builder().context(context).build();
-        // Not as nice as @Injection, but will do.
-        mCustomersDao = component.customersDao();
+    // Rather set inject constructor, instead of requiring a different component
+    // for adhoc injections.
+    @Inject
+    public RandomClassThatNeedsInjection(CustomersDao customersDao) {
+        mCustomersDao = customersDao;
     }
+    
+    public void doRandomStuff(){
+        Log.d(LOG_TAG, "Doing mah thing! :)");
+    }
+        
 }
